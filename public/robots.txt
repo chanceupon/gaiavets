@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://gaiavets.com
+
+# Sitemaps
+Sitemap: https://gaiavets.com/sitemap.xml

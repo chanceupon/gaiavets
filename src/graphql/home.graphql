@@ -1,0 +1,272 @@
+query getTeam {
+  team(publicationState: LIVE) {
+    data {
+      attributes {
+        teamInfo {
+          id
+          title
+          description
+          members(pagination: { pageSize: 100 }) {
+            id
+            name
+            position
+            description
+            image {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+query getHome {
+  home(publicationState: LIVE) {
+    data {
+      attributes {
+        seo {
+          metaTitle
+          metaDescription
+          metaImage {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          metaSocial {
+            socialNetwork
+            title
+            description
+            image {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+          keywords
+          metaRobots
+          structuredData
+          metaViewport
+          canonicalURL
+        }
+        banner {
+          mainText
+          subText
+          slides {
+            data {
+              id
+              attributes {
+                url
+              }
+            }
+          }
+        }
+        whyChooseUs {
+          id
+          title
+          icon {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          causes {
+            id
+            title
+            mobileTitle
+            description
+            textLink
+            link
+            image {
+              data {
+                id
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+        gaiaGuide {
+          id
+          bigText
+          bigTextMobile
+          smallText
+          achievements {
+            text
+            number
+          }
+        }
+        whyPeopleLoveUs {
+          id
+          title
+          icon {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          reviewCards {
+            id
+            description
+            star
+            image {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+        ourLocations {
+          id
+          title
+          data
+        }
+        forAllYourPetNeeds {
+          id
+          title
+          description
+          image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          buttonVisitOurShop {
+            text
+            link
+          }
+        }
+      }
+    }
+  }
+}
+
+query getGuides {
+  guides(publicationState: LIVE, sort: ["type:desc", "date:desc"]) {
+    data {
+      id
+      attributes {
+        slug
+        date
+        title
+        subTitle
+        content
+        shortDescription
+        tags
+        createdAt
+        updatedAt
+        publishedAt
+        image {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        readTime
+        type
+      }
+    }
+  }
+}
+
+query getDetailGuide($slug: String!) {
+  guides(filters: { slug: { eq: $slug } }) {
+    data {
+      attributes {
+        seo {
+          metaTitle
+          metaDescription
+          metaImage {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          metaSocial {
+            socialNetwork
+            title
+            description
+            image {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+          keywords
+          metaRobots
+          structuredData
+          metaViewport
+          canonicalURL
+        }
+        slug
+        date
+        title
+        subTitle
+        content
+        tags
+        image {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        readTime
+        type
+        createdAt
+        updatedAt
+        publishedAt
+
+        moreGuides {
+          data {
+            id
+            attributes {
+              title
+              slug
+              date
+              subTitle
+              content
+              image {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+query getLocation {
+  location(publicationState: LIVE) {
+    data {
+      attributes {
+        locations {
+          mapIframe
+        }
+      }
+    }
+  }
+}
